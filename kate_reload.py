@@ -21,8 +21,6 @@ import kate
 from .Kate.Document import KateDocument
 import sip
 
-
-
 class KateReload(QObject):
   def __init__(self):
     QObject.__init__(self)
@@ -44,7 +42,6 @@ class KateReload(QObject):
     self.act.setCheckable(True)
     self.act.setChecked(False)
 
-    
     self.act.changed.connect(self.onActionChange)
     self.act.toggled.connect(self.toggle)
     
@@ -63,7 +60,6 @@ class KateReload(QObject):
           self.act.setChecked(False)
       self.act.blockSignals(False)
       
-
   def onActionChange(self):
       kate.configuration[self.sender().objectName()] = self.sender().shortcut().toString()
       kate.configuration.save()
@@ -97,13 +93,3 @@ class KateReload(QObject):
         showOk(i18n('Auto-Reload disabled'))
       else:
         print('Error disabled called on something with no auto-reload')
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
